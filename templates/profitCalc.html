@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор прибутку</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор прибутку</h1>
+        <form method="post">
+            <label>Середньодобова потужність (Pc, МВт): <input type="text" name="Pc"></label>
+            <label>Старе σ (МВт): <input type="text" name="oldSigma"></label>
+            <label>Нове σ (МВт): <input type="text" name="newSigma"></label>
+            <label>Вартість електроенергії (B, грн/МВт): <input type="text" name="B"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .oldProfit}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Прибуток до вдосконалення: {{.oldProfit}} тис. грн</p>
+            <p>Прибуток після вдосконалення: {{.newProfit}} тис. грн</p>
+            <p>Збільшення прибутку: {{.profitIncrease}} тис. грн</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>
